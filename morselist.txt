@@ -1,0 +1,5 @@
+.... - 1st lamp
+
+..-. - 1st light
+
+--.. - 1st puzzle
