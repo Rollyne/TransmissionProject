@@ -1,4 +1,5 @@
-extends KinematicBody2D
+extends Node2D
+onready var globals = get_node("/root/globals");
 
 # class member variables go here, for example:
 # var a = 2
@@ -27,11 +28,18 @@ func layerActivate(var layerToShow, var layerOther_1, var layerOther_2, var even
 			if get_layer_node(layerToShow).is_hidden():
 				layerOn(layerToShow);
 			elif (get_layer_node(layerOther_2).is_hidden() == false || get_layer_node(layerOther_1).is_hidden() == false):
+				
 				layerOff(layerToShow);
 		
 	
 	
 func _input(event):
-	layerActivate("Red", "Green", "Blue", event, "controlRed");
-	layerActivate("Green", "Red", "Blue", event, "controlGreen");
-	layerActivate("Blue", "Red", "Green", event, "controlBlue");
+	layerActivate("Light", "Mechanical", "Morse", event, "controlLight");
+	layerActivate("Mechanical", "Light", "Morse", event, "controlMechanical");
+	layerActivate("Morse", "Light", "Mechanical", event, "controlMorse");
+	
+	if (get_layer_node("Morse").is_hidden()):
+		globals.setLayerMorseActive(false);
+	else:
+		globals.setLayerMorseActive(true);
+	

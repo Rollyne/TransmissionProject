@@ -15,24 +15,26 @@ func _input(event):
 		morseRelease = true;
 
 func _fixed_process(delta):	
-	if Input.is_action_pressed("morsePress"):
-		
-		#Stopwatch counts
-		time = time + delta
-		print(time);
-		print(delta);
-		
-	elif morseRelease:
-		#Check and add morse code
-		if time <= 0.4:
-			globals.setCurrCode(".");
-		elif time > 0.4 && time < 1.5:
-			globals.setCurrCode("-");
-		
-		print(globals.getCurrCode())	
-		globals.morseCheck();
-		time = 0;
-		morseRelease = false;	
+	if globals.getLayerMorseActive():
+		if Input.is_action_pressed("morsePress"):
+			
+			#Stopwatch counts
+			time = time + delta
+			print(time);
+			
+		elif morseRelease:
+			#Check and add morse code
+			if time <= 0.4 && time != 0:
+				globals.setCurrCode(".");
+				print(globals.getCurrCode());
+			elif time > 0.4 && time < 1.5:
+				globals.setCurrCode("-");
+				print(globals.getCurrCode());
+			
+			
+			globals.morseCheck();
+			time = 0;
+			morseRelease = false;	
 		
 		
 		
