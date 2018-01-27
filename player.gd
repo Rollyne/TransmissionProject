@@ -17,7 +17,7 @@ const GRAVITY = 2500
 const MAX_FALL_SPEED = 500
 
 var jump_count = 0
-const MAX_JUMP_COUNT = 2
+const MAX_JUMP_COUNT = 1
 
 
 func _ready():
@@ -30,6 +30,7 @@ func _input(event):
 	if jump_count < MAX_JUMP_COUNT and event.is_action_pressed("jump"):
 		speed.y = -JUMP_FORCE
 		jump_count += 1
+	
 
 
 func _process(delta):
@@ -57,7 +58,7 @@ func _process(delta):
 	if speed.y > MAX_FALL_SPEED:
 		speed.y = MAX_FALL_SPEED
 	if Input.is_action_pressed("ui_down"):
-		speed.y=750
+		speed.y=900
 		print(speed.y)
 	
 	velocity = Vector2(speed.x * delta * direction, speed.y * delta)
