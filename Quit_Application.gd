@@ -10,4 +10,4 @@ func _ready():
 
 
 func _on_Button_pressed():
-	get_node("/root/Change").goto_scene("res://Level_Select/Level_select.tscn")
+	get_node("/root/Change").goto_scene("res://Level_Select/Level_Select.tscn")
