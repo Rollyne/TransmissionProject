@@ -1,5 +1,13 @@
 extends Node
 
+var layerMorseActive = false;
+
+func setLayerMorseActive(mode):
+	layerMorseActive = mode;
+
+func getLayerMorseActive():
+	return layerMorseActive;
+
 var currCode = "";
 func getCurrCode():
 	return currCode;
