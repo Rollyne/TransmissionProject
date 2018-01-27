@@ -2,9 +2,7 @@
 extends Control
 
 
-
-onready var tree = get_tree()
-onready var _option = get_parent().get_node("option")
+onready var _option = get_tree().get_root().get_node("menu").find_node("option")
 
 func _ready():
 	get_node("buttons/btnStart").connect("pressed", self, "_on_btnStart_pressed")
@@ -18,4 +16,4 @@ func _on_btnOption_pressed():
 	_option.show()
 
 func _on_btnQuit_pressed():
-	tree.quit()
+	get_tree().quit()

@@ -11,14 +11,14 @@ font/use_mipmaps = true
 font/use_filter = false
 font/font = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 
-font/size = 24
+font/size = 28
 font/use_mipmaps = true
 font/use_filter = false
 font/font = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=4]
 
 font/size = 24
 font/use_mipmaps = true
@@ -33,34 +33,48 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 40.0
-margin/bottom = 40.0
+margin/right = 1022.0
+margin/bottom = 601.0
 
-[node name="main" type="Panel" parent="."]
+[node name="main" type="CenterContainer" parent="."]
+
+anchor/right = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = -258.0
+margin/bottom = 720.0
+use_top_left = false
+script/script = ExtResource( 1 )
+
+[node name="buttons" type="VBoxContainer" parent="main"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
+size_flags/horizontal = 3
 size_flags/vertical = 2
-margin/left = 330.0
-margin/top = 50.0
-margin/right = 730.0
-margin/bottom = 250.0
-script/script = ExtResource( 1 )
+margin/left = 463.0
+margin/top = 221.0
+margin/right = 817.0
+margin/bottom = 499.0
+custom_constants/separation = 20
+alignment = 1
 
-[node name="lblTitle" type="Label" parent="main"]
+[node name="lblTitle" type="Label" parent="main/buttons"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
+size_flags/horizontal = 3
+size_flags/vertical = 3
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 400.0
-margin/bottom = 200.0
+margin/right = 354.0
+margin/bottom = 83.0
 custom_fonts/font = SubResource( 1 )
-text = "Game
-Title"
+text = "Game Title"
 align = 1
 valign = 1
 uppercase = true
@@ -68,29 +82,17 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="buttons" type="Control" parent="main"]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 50.0
-margin/top = 230.0
-margin/right = 90.0
-margin/bottom = 270.0
-
 [node name="btnStart" type="Button" parent="main/buttons"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
+size_flags/horizontal = 3
+size_flags/vertical = 3
 margin/left = 0.0
-margin/top = 0.0
-margin/right = 300.0
-margin/bottom = 80.0
-custom_fonts/font = SubResource( 2 )
+margin/top = 103.0
+margin/right = 354.0
+margin/bottom = 148.0
+custom_fonts/font = SubResource( 3 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -101,60 +103,85 @@ flat = false
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
+size_flags/horizontal = 3
+size_flags/vertical = 3
 margin/left = 0.0
-margin/top = 90.0
-margin/right = 300.0
-margin/bottom = 170.0
-custom_fonts/font = SubResource( 2 )
+margin/top = 168.0
+margin/right = 354.0
+margin/bottom = 213.0
+custom_fonts/font = SubResource( 3 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-text = "Option"
+text = "Options"
 flat = false
 
 [node name="btnQuit" type="Button" parent="main/buttons"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
+size_flags/horizontal = 3
+size_flags/vertical = 3
 margin/left = 0.0
-margin/top = 180.0
-margin/right = 300.0
-margin/bottom = 260.0
-custom_fonts/font = SubResource( 2 )
+margin/top = 233.0
+margin/right = 354.0
+margin/bottom = 278.0
+custom_fonts/font = SubResource( 3 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 text = "Quit"
 flat = false
 
-[node name="option" type="Panel" parent="."]
+[node name="option" type="Panel" parent="main"]
 
-visibility/visible = false
+rect/min_size = Vector2( 640, 360 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 120.0
-margin/top = 40.0
-margin/right = 920.0
-margin/bottom = 440.0
+margin/left = 320.0
+margin/top = 180.0
+margin/right = 960.0
+margin/bottom = 540.0
 script/script = ExtResource( 3 )
 
-[node name="btnBack" type="Button" parent="option"]
+[node name="CenterContainer" type="CenterContainer" parent="main/option"]
+
+anchor/right = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 360.0
+use_top_left = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="main/option/CenterContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 284.0
+margin/top = 160.0
+margin/right = 356.0
+margin/bottom = 200.0
+alignment = 1
+
+[node name="btnBack" type="Button" parent="main/option/CenterContainer/VBoxContainer"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 30.0
-margin/top = 320.0
-margin/right = 210.0
-margin/bottom = 380.0
-custom_fonts/font = SubResource( 3 )
+size_flags/horizontal = 0
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 72.0
+margin/bottom = 40.0
+custom_fonts/font = SubResource( 4 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
