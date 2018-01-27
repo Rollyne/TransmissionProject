@@ -1,0 +1,299 @@
+[gd_scene load_steps=11 format=1]
+
+[ext_resource path="res://Assets/Graphics/Sprites/platformRed.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Graphics/Sprites/platformBlue.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Graphics/Sprites/platformStandart.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Graphics/Sprites/platformGreen.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/scriptPlayer.gd" type="Script" id=5]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 7.02565, -41.1753, -55.0756, -40.9746, -54.93, -47.037, 12.8743, -47.1973 )
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 7.02565, -41.1753, 12.8743, -47.1973, 12.8743, 23.146, 7.25868, 17.6305 )
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 7.25868, 17.6305, 12.8743, 23.146, -59.6386, 23.4664, -53.0949, 17.2291 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -53.0949, 17.2291, -59.6386, 23.4664, -59.9986, -46.6617, -53.2409, -47.0631 )
+
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[node name="World" type="Node2D"]
+
+transform/pos = Vector2( 6.67441, 8.20414 )
+transform/scale = Vector2( 1.20858, 1.25638 )
+
+[node name="levelBorder" type="StaticBody2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 515.94, 308.611 )
+transform/scale = Vector2( 16.1352, 9.0105 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 23.7752, 8.84748 )
+shapes/0/trigger = false
+shapes/1/shape = SubResource( 2 )
+shapes/1/transform = Matrix32( 1, 0, 0, 1, 23.7752, 8.84748 )
+shapes/1/trigger = false
+shapes/2/shape = SubResource( 3 )
+shapes/2/transform = Matrix32( 1, 0, 0, 1, 23.7752, 8.84748 )
+shapes/2/trigger = false
+shapes/3/shape = SubResource( 4 )
+shapes/3/transform = Matrix32( 1, 0, 0, 1, 23.7752, 8.84748 )
+shapes/3/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelBorder"]
+
+transform/pos = Vector2( 23.7752, 8.84748 )
+build_mode = 0
+polygon = Vector2Array( -54.93, -47.037, 12.8743, -47.1973, 12.8743, 23.146, -59.6386, 23.4664, -59.9986, -46.6617, -53.2409, -47.0631, -53.0949, 17.2291, 7.25868, 17.6305, 7.02565, -41.1753, -55.0756, -40.9746 )
+shape_range = Vector2( 0, 3 )
+trigger = false
+
+[node name="Polygon2D" type="Polygon2D" parent="levelBorder"]
+
+transform/pos = Vector2( -2.06132, 30.0169 )
+polygon = Vector2Array( -34.1736, -68.3512, -34.2179, 3.00756, 38.3437, 2.63685, 38.3437, -67.4291, -29.4563, -67.4291, -29.4721, -62.3447, 32.9787, -62.3447, 33.0991, -3.44017, -27.2585, -3.44017, -27.354, -68.5185 )
+uv = Vector2Array(  )
+color = Color( 0.0195313, 0.00946045, 0.00946045, 1 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="Layers" type="Node2D" parent="."]
+
+[node name="Red" type="Node2D" parent="Layers"]
+
+editor/display_folded = true
+
+[node name="platformRed_1" type="StaticBody2D" parent="Layers/Red" groups=[
+"platformRed",
+]]
+
+editor/display_folded = true
+transform/pos = Vector2( 695.543, 543.968 )
+transform/scale = Vector2( 1.05053, 0.444133 )
+input/pickable = false
+shapes/0/shape = SubResource( 5 )
+shapes/0/transform = Matrix32( 6.59164, 0, 0, 4.85018, 38.3116, -76.425 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="Sprite" type="Sprite" parent="Layers/Red/platformRed_1"]
+
+transform/pos = Vector2( 38.1409, -76.536 )
+transform/scale = Vector2( 10.1441, 19.3899 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Layers/Red/platformRed_1"]
+
+transform/pos = Vector2( 38.3116, -76.425 )
+transform/scale = Vector2( 6.59164, 4.85018 )
+shape = SubResource( 5 )
+trigger = false
+_update_shape_index = 0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="platformRed_2" type="StaticBody2D" parent="Layers/Red" groups=[
+"platformRed",
+]]
+
+editor/display_folded = true
+transform/pos = Vector2( 461.905, 311.838 )
+transform/scale = Vector2( 1.05053, 0.444133 )
+input/pickable = false
+shapes/0/shape = SubResource( 5 )
+shapes/0/transform = Matrix32( 6.59164, 0, 0, 4.85018, 38.3116, -76.425 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="Sprite" type="Sprite" parent="Layers/Red/platformRed_2"]
+
+transform/pos = Vector2( 38.1409, -76.536 )
+transform/scale = Vector2( 10.1441, 19.3899 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Layers/Red/platformRed_2"]
+
+transform/pos = Vector2( 38.3116, -76.425 )
+transform/scale = Vector2( 6.59164, 4.85018 )
+shape = SubResource( 5 )
+trigger = false
+_update_shape_index = 0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Blue" type="Node2D" parent="Layers"]
+
+editor/display_folded = true
+
+[node name="platformBlue" type="StaticBody2D" parent="Layers/Blue" groups=[
+"platformBlue",
+]]
+
+editor/display_folded = true
+transform/pos = Vector2( 672.673, 253.053 )
+transform/scale = Vector2( 1.4787, 0.444133 )
+input/pickable = false
+shapes/0/shape = SubResource( 5 )
+shapes/0/transform = Matrix32( 6.59164, 0, 0, 4.85018, 38.3116, -76.425 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="Sprite" type="Sprite" parent="Layers/Blue/platformBlue"]
+
+transform/pos = Vector2( 38.1409, -76.536 )
+transform/scale = Vector2( 10.1441, 19.3899 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Layers/Blue/platformBlue"]
+
+transform/pos = Vector2( 38.3116, -76.425 )
+transform/scale = Vector2( 6.59164, 4.85018 )
+shape = SubResource( 5 )
+trigger = false
+_update_shape_index = 0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Standart" type="Node2D" parent="Layers"]
+
+editor/display_folded = true
+
+[node name="platformStandart" type="StaticBody2D" parent="Layers/Standart"]
+
+editor/display_folded = true
+transform/pos = Vector2( 456.907, 466.608 )
+transform/scale = Vector2( 1.4787, 0.444133 )
+input/pickable = false
+shapes/0/shape = SubResource( 5 )
+shapes/0/transform = Matrix32( 6.59164, 0, 0, 4.85018, 38.3116, -76.425 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="Sprite" type="Sprite" parent="Layers/Standart/platformStandart"]
+
+transform/pos = Vector2( 38.1409, -76.536 )
+transform/scale = Vector2( 10.1441, 19.3899 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Layers/Standart/platformStandart"]
+
+transform/pos = Vector2( 38.3116, -76.425 )
+transform/scale = Vector2( 6.59164, 4.85018 )
+shape = SubResource( 5 )
+trigger = false
+_update_shape_index = 0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Green" type="Node2D" parent="Layers"]
+
+editor/display_folded = true
+visibility/visible = false
+
+[node name="platformGreen" type="StaticBody2D" parent="Layers/Green"]
+
+transform/pos = Vector2( 241.288, 384.384 )
+transform/scale = Vector2( 1.05053, 0.444133 )
+input/pickable = false
+shapes/0/shape = SubResource( 5 )
+shapes/0/transform = Matrix32( 6.59164, 0, 0, 4.85018, 38.3116, -76.425 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="Sprite" type="Sprite" parent="Layers/Green/platformGreen"]
+
+transform/pos = Vector2( 38.1409, -76.536 )
+transform/scale = Vector2( 10.1441, 19.3899 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Layers/Green/platformGreen"]
+
+transform/pos = Vector2( 38.3116, -76.425 )
+transform/scale = Vector2( 6.59164, 4.85018 )
+shape = SubResource( 5 )
+trigger = false
+_update_shape_index = 0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Player" type="KinematicBody2D" parent="."]
+
+input/pickable = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+script/script = ExtResource( 5 )
+
+
