@@ -38,7 +38,6 @@ transform/scale = Vector2( 1.20858, 1.25638 )
 
 [node name="levelBorder" type="StaticBody2D" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 515.94, 308.611 )
 transform/scale = Vector2( 16.1352, 9.0105 )
 input/pickable = false
