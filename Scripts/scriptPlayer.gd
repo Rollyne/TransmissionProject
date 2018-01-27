@@ -11,10 +11,12 @@ func get_layer_node(var layer):
 	return get_tree().get_root().get_node("World").get_node("Layers/" + layer);
 	
 	
-func layerOnOff(var event, var layer):
+func layerOn(var layer):
 		if get_layer_node(layer).is_hidden():
 			get_layer_node(layer).show();
-		else:
+			
+func layerOff(var layer):
+		if get_layer_node(layer).is_hidden() == false:
 			get_layer_node(layer).hide();
 			
 
@@ -22,8 +24,10 @@ func layerOnOff(var event, var layer):
 func layerActivate(var layerToShow, var layerOther_1, var layerOther_2, var event, var action):
 	if event.is_action_pressed(action):
 		if get_layer_node(layerOther_1).is_hidden() || get_layer_node(layerOther_2).is_hidden():
-			layerOnOff(event, layerToShow);
-		
+			if get_layer_node(layerToShow).is_hidden():
+				layerOn(layerToShow);
+			elif (get_layer_node(layerOther_2).is_hidden() == false || get_layer_node(layerOther_1).is_hidden() == false):
+				layerOff(layerToShow);
 		
 	
 	
