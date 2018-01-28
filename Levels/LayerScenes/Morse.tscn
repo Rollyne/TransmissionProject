@@ -23,7 +23,7 @@ editor/display_folded = true
 [node name="Platform_1" type="StaticBody2D" parent="Platforms"]
 
 editor/display_folded = true
-transform/pos = Vector2( 448.045, 340.762 )
+transform/pos = Vector2( 354.179, 299.951 )
 transform/scale = Vector2( 0.395983, 0.803006 )
 input/pickable = false
 shapes/0/shape = SubResource( 1 )

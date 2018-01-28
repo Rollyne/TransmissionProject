@@ -10,7 +10,7 @@ func _ready():
 	get_node("buttons/btnQuit").connect("pressed", self, "_on_btnQuit_pressed")
 
 func _on_btnStart_pressed():
-	get_node("/root/Change").goto_scene("res://Levels/Level_Select.tscn")
+	get_node("/root/Change").goto_scene("res://Levels/Level_1.tscn")
 
 func _on_btnOption_pressed():
 	_option.show()

@@ -10,8 +10,6 @@ func _ready():
 	pass
 
 
-
-
 func _on_Area2D_body_enter( body ):
-	if body.get_name()!="Player"&&body.get_name()!="Platform_2"&&body.get_name()!="Platform_1"&&body.get_name()!="Floor":
-		body.queue_free()
+	print("Signal aquired")
+	body.queue_free()
