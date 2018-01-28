@@ -11,8 +11,6 @@ extents = Vector2( 100.012, 14.3225 )
 
 [node name="Light" type="Node2D"]
 
-editor/display_folded = true
-
 [node name="Platforms" type="Node2D" parent="."]
 
 editor/display_folded = true
@@ -91,18 +89,16 @@ __meta__ = {
 
 [node name="Transmitters" type="Node2D" parent="."]
 
-editor/display_folded = true
-
 [node name="Transmitter_1" type="Sprite" parent="Transmitters"]
 
-transform/pos = Vector2( 1264.62, 476.095 )
+transform/pos = Vector2( 1263.51, 482.743 )
 transform/rot = 43.001
 transform/scale = Vector2( 0.511153, 0.255547 )
 texture = ExtResource( 2 )
 
 [node name="Transmitter_2" type="Sprite" parent="Transmitters"]
 
-transform/pos = Vector2( 1287.64, 368.077 )
+transform/pos = Vector2( 1255.55, 365.356 )
 transform/rot = 22.6735
 transform/scale = Vector2( 0.511153, 0.255547 )
 texture = ExtResource( 2 )
@@ -114,13 +110,18 @@ transform/rot = -0.374981
 transform/scale = Vector2( 0.511153, 0.255547 )
 texture = ExtResource( 2 )
 
-[node name="Recievers" type="Node2D" parent="."]
+[node name="Transmitter_4" type="Sprite" parent="Transmitters"]
 
-editor/display_folded = true
+transform/pos = Vector2( 733.319, 20.7811 )
+transform/rot = -0.374981
+transform/scale = Vector2( 0.511153, 0.255547 )
+texture = ExtResource( 2 )
+
+[node name="Recievers" type="Node2D" parent="."]
 
 [node name="Reciever_1" type="Sprite" parent="Recievers"]
 
-transform/pos = Vector2( 1111.64, 666.292 )
+transform/pos = Vector2( 1087.64, 666.292 )
 transform/rot = -88.751
 transform/scale = Vector2( 0.536456, 0.251139 )
 texture = ExtResource( 3 )
@@ -129,6 +130,13 @@ texture = ExtResource( 3 )
 
 transform/pos = Vector2( 1008.93, 475.046 )
 transform/rot = -88.751
+transform/scale = Vector2( 0.536456, 0.251139 )
+texture = ExtResource( 3 )
+
+[node name="Reciever_3" type="Sprite" parent="Recievers"]
+
+transform/pos = Vector2( 337.789, 19.1278 )
+transform/rot = -180.399
 transform/scale = Vector2( 0.536456, 0.251139 )
 texture = ExtResource( 3 )
 

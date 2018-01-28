@@ -14,22 +14,22 @@
 [ext_resource path="res://player.gd" type="Script" id=12]
 [ext_resource path="res://Assets/Hero/hero.png" type="Texture" id=13]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 659.543, 10 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 406.448, 10 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 45.1275 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
@@ -39,8 +39,6 @@ extents = Vector2( 10, 10 )
 script/script = ExtResource( 1 )
 
 [node name="Background" type="Node2D" parent="."]
-
-editor/display_folded = true
 
 [node name="Backgroud" type="TextureFrame" parent="Background"]
 
@@ -117,7 +115,7 @@ transform/pos = Vector2( 5.0105, -26.7229 )
 editor/display_folded = true
 transform/pos = Vector2( 658.708, 636.098 )
 input/pickable = false
-shapes/0/shape = SubResource( 3 )
+shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, -13.5662, 76.8744 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -130,7 +128,7 @@ bounce = 0.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder/StaticBody2D"]
 
 transform/pos = Vector2( -13.5662, 76.8744 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
@@ -144,7 +142,7 @@ texture = ExtResource( 7 )
 
 editor/display_folded = true
 input/pickable = false
-shapes/0/shape = SubResource( 4 )
+shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Matrix32( 1.59689, 0, 0, 1, 637.545, 1.50734 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -158,7 +156,7 @@ bounce = 0.0
 
 transform/pos = Vector2( 637.545, 1.50734 )
 transform/scale = Vector2( 1.59689, 1 )
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
 
@@ -166,7 +164,7 @@ _update_shape_index = 0
 
 editor/display_folded = true
 input/pickable = false
-shapes/0/shape = SubResource( 5 )
+shapes/0/shape = SubResource( 3 )
 shapes/0/transform = Matrix32( 1, 0, 0, 7.91545, -2.24994, 360.484 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -180,7 +178,7 @@ bounce = 0.0
 
 transform/pos = Vector2( -2.24994, 360.484 )
 transform/scale = Vector2( 1, 7.91545 )
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 0
 
@@ -190,7 +188,7 @@ editor/display_folded = true
 transform/pos = Vector2( 1282.75, 14.1636 )
 transform/scale = Vector2( 1, 1.64079 )
 input/pickable = false
-shapes/0/shape = SubResource( 5 )
+shapes/0/shape = SubResource( 3 )
 shapes/0/transform = Matrix32( 1, 0, 0, 5.22928, 4.47778, 193.516 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -204,12 +202,13 @@ bounce = 0.0
 
 transform/pos = Vector2( 4.47778, 193.516 )
 transform/scale = Vector2( 1, 5.22928 )
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 0
 
 [node name="Layers" type="Node2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 74.3627, 38.993 )
 transform/scale = Vector2( 0.943181, 0.943181 )
 script/script = ExtResource( 8 )
@@ -226,7 +225,7 @@ editor/display_folded = true
 transform/pos = Vector2( 1213.85, 498.391 )
 transform/scale = Vector2( 0.582035, 0.582035 )
 input/pickable = false
-shapes/0/shape = SubResource( 6 )
+shapes/0/shape = SubResource( 4 )
 shapes/0/transform = Matrix32( 4.31829, 0, 0, 10.606, 23.7454, 119.013 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -245,7 +244,7 @@ flip_h = true
 
 transform/pos = Vector2( 23.7454, 119.013 )
 transform/scale = Vector2( 4.31829, 10.606 )
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 trigger = false
 _update_shape_index = 0
 
