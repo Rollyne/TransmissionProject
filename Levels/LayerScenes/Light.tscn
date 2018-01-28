@@ -1,0 +1,135 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://Assets/Pads/pad-main_0001_Layer-3.png" type="Texture" id=1]
+[ext_resource path="res://Assets/laser-out.png" type="Texture" id=2]
+[ext_resource path="res://Assets/light-in.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 100.012, 14.3225 )
+
+[node name="Light" type="Node2D"]
+
+editor/display_folded = true
+
+[node name="Platforms" type="Node2D" parent="."]
+
+editor/display_folded = true
+
+[node name="Platform_1" type="StaticBody2D" parent="Platforms"]
+
+editor/display_folded = true
+transform/pos = Vector2( 668.284, 625.734 )
+transform/scale = Vector2( 0.493126, 1 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1.40184, 0, 0, 1, 41.3945, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform_1"]
+
+transform/pos = Vector2( 41.3945, 0 )
+transform/scale = Vector2( 1.40184, 1 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Platforms/Platform_1"]
+
+transform/pos = Vector2( 38.0213, 0 )
+transform/scale = Vector2( 1.43633, 1 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Platform_2" type="StaticBody2D" parent="Platforms"]
+
+editor/display_folded = true
+transform/pos = Vector2( 460.438, 353.304 )
+transform/scale = Vector2( 0.385874, 0.789687 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1.40184, 0, 0, 1, 41.3945, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform_2"]
+
+transform/pos = Vector2( 41.3945, 0 )
+transform/scale = Vector2( 1.40184, 1 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Platforms/Platform_2"]
+
+transform/pos = Vector2( 38.0213, 0 )
+transform/scale = Vector2( 1.43633, 1 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Transmitters" type="Node2D" parent="."]
+
+editor/display_folded = true
+
+[node name="Transmitter_1" type="Sprite" parent="Transmitters"]
+
+transform/pos = Vector2( 1264.62, 476.095 )
+transform/rot = 43.001
+transform/scale = Vector2( 0.511153, 0.255547 )
+texture = ExtResource( 2 )
+
+[node name="Transmitter_2" type="Sprite" parent="Transmitters"]
+
+transform/pos = Vector2( 1287.64, 368.077 )
+transform/rot = 22.6735
+transform/scale = Vector2( 0.511153, 0.255547 )
+texture = ExtResource( 2 )
+
+[node name="Transmitter_3" type="Sprite" parent="Transmitters"]
+
+transform/pos = Vector2( 543.908, 575.26 )
+transform/rot = -0.374981
+transform/scale = Vector2( 0.511153, 0.255547 )
+texture = ExtResource( 2 )
+
+[node name="Recievers" type="Node2D" parent="."]
+
+editor/display_folded = true
+
+[node name="Reciever_1" type="Sprite" parent="Recievers"]
+
+transform/pos = Vector2( 1111.64, 666.292 )
+transform/rot = -88.751
+transform/scale = Vector2( 0.536456, 0.251139 )
+texture = ExtResource( 3 )
+
+[node name="Reciever_2" type="Sprite" parent="Recievers"]
+
+transform/pos = Vector2( 1008.93, 475.046 )
+transform/rot = -88.751
+transform/scale = Vector2( 0.536456, 0.251139 )
+texture = ExtResource( 3 )
+
+
