@@ -29,10 +29,13 @@ func _fixed_process(delta):
 				print(globals.getCurrCode());
 			elif time > 0.4 && time < 1.5:
 				globals.setCurrCode("-");
-				print(globals.getCurrCode());
+				
 			
 			
-			globals.morseCheck();
+			
+			
+			
+			
 			time = 0;
 			morseRelease = false;	
 		

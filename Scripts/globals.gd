@@ -1,6 +1,7 @@
 extends Node
 
 var layerMorseActive = false;
+var laserIsSolved = false;
 
 func setLayerMorseActive(mode):
 	layerMorseActive = mode;
@@ -16,13 +17,17 @@ func setCurrCode(var symbol):
 	if currCode.length() == 4:
 		currCode = "";
 	currCode = currCode + symbol;
+	
 
-
-var codeList = ["....", "..-.", "--.."];
+var codeList = ["-...", ".-..", "--..", "-...", ".-.-", "--.-"];
 
 func morseCheck():
-	if (currCode in codeList) && currCode.length() == 4:
-		print("This exists!");
+	if (currCode == codeList.back()) && currCode.length() == 4:
+		if (currCode == "-..." && laserIsSolved == false):
+			return false;
+			
+		codeList.pop_back();
+		return true;
 		
 			
 func _ready():

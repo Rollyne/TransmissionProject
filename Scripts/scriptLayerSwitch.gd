@@ -59,4 +59,8 @@ func _input(event):
 		globals.setLayerMorseActive(false);
 	else:
 		globals.setLayerMorseActive(true);
+		
+	globals.morseCheck():
+morseCheck()
+		i
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=1]
+[gd_scene load_steps=20 format=1]
 
 [ext_resource path="res://Quit.gd" type="Script" id=1]
 [ext_resource path="res://Assets/level-background.png" type="Texture" id=2]
@@ -6,13 +6,15 @@
 [ext_resource path="res://Assets/boder-bottom.png" type="Texture" id=4]
 [ext_resource path="res://Assets/left-border.png" type="Texture" id=5]
 [ext_resource path="res://Assets/right-border.png" type="Texture" id=6]
-[ext_resource path="res://Assets/bottom.png" type="Texture" id=7]
-[ext_resource path="res://Scripts/scriptLayerSwitch.gd" type="Script" id=8]
-[ext_resource path="res://Levels/LayerScenes/Morse.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Levels/LayerScenes/Light.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Levels/LayerScenes/Standart.tscn" type="PackedScene" id=11]
-[ext_resource path="res://player.gd" type="Script" id=12]
-[ext_resource path="res://Assets/Hero/hero.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Doorway_0000_Layer-1-copy.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Doorway_0001_Layer-3.png" type="Texture" id=8]
+[ext_resource path="res://Scripts/scriptLayerSwitch.gd" type="Script" id=9]
+[ext_resource path="res://Levels/LayerScenes/Morse.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Levels/LayerScenes/Light.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Levels/LayerScenes/Standart.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Assets/bottom.png" type="Texture" id=13]
+[ext_resource path="res://player.gd" type="Script" id=14]
+[ext_resource path="res://Assets/Hero/hero.png" type="Texture" id=15]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -39,6 +41,8 @@ extents = Vector2( 10, 10 )
 script/script = ExtResource( 1 )
 
 [node name="Background" type="Node2D" parent="."]
+
+editor/display_folded = true
 
 [node name="Backgroud" type="TextureFrame" parent="Background"]
 
@@ -105,6 +109,31 @@ margin/bottom = 722.0
 texture = ExtResource( 6 )
 stretch_mode = 0
 
+[node name="DoorExit" type="Sprite" parent="Background"]
+
+transform/pos = Vector2( 14.7969, 88.5091 )
+transform/scale = Vector2( 0.263164, 0.312886 )
+texture = ExtResource( 7 )
+
+[node name="DoorEnter" type="Sprite" parent="Background"]
+
+transform/pos = Vector2( 1272.87, 586.78 )
+transform/scale = Vector2( 0.605959, 0.605959 )
+texture = ExtResource( 8 )
+flip_h = true
+
+[node name="Layers" type="Node2D" parent="."]
+
+transform/pos = Vector2( 74.3627, 38.993 )
+transform/scale = Vector2( 0.943181, 0.943181 )
+script/script = ExtResource( 9 )
+
+[node name="Morse" parent="Layers" instance=ExtResource( 10 )]
+
+[node name="Light" parent="Layers" instance=ExtResource( 11 )]
+
+[node name="Standart" parent="Layers" instance=ExtResource( 12 )]
+
 [node name="WorldBorder" type="Node2D" parent="."]
 
 editor/display_folded = true
@@ -136,7 +165,7 @@ _update_shape_index = 0
 
 transform/pos = Vector2( -19.3083, 102.61 )
 transform/scale = Vector2( 1.0533, 1.175 )
-texture = ExtResource( 7 )
+texture = ExtResource( 13 )
 
 [node name="StaticBody2D 2" type="StaticBody2D" parent="WorldBorder"]
 
@@ -206,19 +235,6 @@ shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 0
 
-[node name="Layers" type="Node2D" parent="."]
-
-editor/display_folded = true
-transform/pos = Vector2( 74.3627, 38.993 )
-transform/scale = Vector2( 0.943181, 0.943181 )
-script/script = ExtResource( 8 )
-
-[node name="Morse" parent="Layers" instance=ExtResource( 9 )]
-
-[node name="Light" parent="Layers" instance=ExtResource( 10 )]
-
-[node name="Standart" parent="Layers" instance=ExtResource( 11 )]
-
 [node name="Player" type="KinematicBody2D" parent="."]
 
 editor/display_folded = true
@@ -231,13 +247,13 @@ shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
-script/script = ExtResource( 12 )
+script/script = ExtResource( 14 )
 
 [node name="Sprite" type="Sprite" parent="Player"]
 
 transform/pos = Vector2( 22.6782, 116.718 )
 transform/scale = Vector2( 0.737528, 0.737528 )
-texture = ExtResource( 13 )
+texture = ExtResource( 15 )
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]

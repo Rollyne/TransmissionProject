@@ -20,6 +20,8 @@ editor/display_folded = true
 
 [node name="Platforms" type="Node2D" parent="."]
 
+editor/display_folded = true
+
 [node name="Platform_1" type="StaticBody2D" parent="Platforms"]
 
 editor/display_folded = true

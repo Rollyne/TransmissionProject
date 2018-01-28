@@ -261,6 +261,8 @@ __meta__ = {
 
 [node name="Walls" type="Node2D" parent="."]
 
+editor/display_folded = true
+
 [node name="Wall_1" type="StaticBody2D" parent="Walls"]
 
 editor/display_folded = true
@@ -477,39 +479,6 @@ transform/scale = Vector2( 2.46857, 7.29922 )
 shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 0
-
-[node name="Wall_6" type="StaticBody2D" parent="Walls"]
-
-editor/display_folded = true
-transform/pos = Vector2( 1252.19, 549.108 )
-input/pickable = false
-shapes/0/shape = SubResource( 2 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 29.1906, 29.854 )
-shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="Sprite" type="Sprite" parent="Walls/Wall_6"]
-
-transform/pos = Vector2( 28.3451, 31.0975 )
-texture = ExtResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall_6"]
-
-transform/pos = Vector2( 29.1906, 29.854 )
-shape = SubResource( 2 )
-trigger = false
-_update_shape_index = 0
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Wall_7" type="StaticBody2D" parent="Walls"]
 
