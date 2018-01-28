@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=1]
+[gd_scene load_steps=25 format=1]
 
 [ext_resource path="res://Quit.gd" type="Script" id=1]
 [ext_resource path="res://Assets/level-background.png" type="Texture" id=2]
@@ -6,16 +6,19 @@
 [ext_resource path="res://Assets/boder-bottom.png" type="Texture" id=4]
 [ext_resource path="res://Assets/left-border.png" type="Texture" id=5]
 [ext_resource path="res://Assets/right-border.png" type="Texture" id=6]
-[ext_resource path="res://Scripts/scriptLayerSwitch.gd" type="Script" id=7]
-[ext_resource path="res://Assets/Pads/pad-main_0000_Layer-4.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Pads/pad-main_0000_short1_Layer-4.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Pads/pad-main_0000_short2_Layer-4.png" type="Texture" id=10]
-[ext_resource path="res://Scripts/scriptMorse.gd" type="Script" id=11]
-[ext_resource path="res://Assets/Pads/pad-main_0002_Layer-2.png" type="Texture" id=12]
-[ext_resource path="res://Assets/Pads/pad-main_0001_Layer-3.png" type="Texture" id=13]
-[ext_resource path="res://Assets/Pads/pad-main_0003_Layer-1.png" type="Texture" id=14]
-[ext_resource path="res://Assets/Switch_0001_Layer-2.png" type="Texture" id=15]
-[ext_resource path="res://Assets/Switch_0000_Layer-1.png" type="Texture" id=16]
+[ext_resource path="res://Assets/bottom.png" type="Texture" id=7]
+[ext_resource path="res://Scripts/scriptLayerSwitch.gd" type="Script" id=8]
+[ext_resource path="res://Assets/Pads/pad-main_0000_Layer-4.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Pads/pad-main_0000_short1_Layer-4.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Pads/pad-main_0000_short2_Layer-4.png" type="Texture" id=11]
+[ext_resource path="res://Assets/wall-small_0001_Layer-1.png" type="Texture" id=12]
+[ext_resource path="res://Scripts/scriptMorse.gd" type="Script" id=13]
+[ext_resource path="res://Assets/Pads/pad-main_0002_Layer-2.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Pads/pad-main_0001_Layer-3.png" type="Texture" id=15]
+[ext_resource path="res://Assets/laser-out.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Pads/pad-main_0003_Layer-1.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Switch_0001_Layer-2.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Switch_0000_Layer-1.png" type="Texture" id=19]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -37,13 +40,16 @@ extents = Vector2( 10, 45.1275 )
 custom_solver_bias = 0.0
 extents = Vector2( 100.012, 14.3225 )
 
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 25.1162, 100.583 )
+
 [node name="World" type="Node"]
 
 script/script = ExtResource( 1 )
 
 [node name="Background" type="Node2D" parent="."]
-
-editor/display_folded = true
 
 [node name="Backgroud" type="TextureFrame" parent="Background"]
 
@@ -117,7 +123,6 @@ transform/pos = Vector2( 5.0105, -26.7229 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="WorldBorder"]
 
-editor/display_folded = true
 transform/pos = Vector2( 658.708, 636.098 )
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
@@ -136,6 +141,12 @@ transform/pos = Vector2( -13.5662, 76.8744 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
+
+[node name="Sprite" type="Sprite" parent="WorldBorder/StaticBody2D"]
+
+transform/pos = Vector2( -19.3083, 102.61 )
+transform/scale = Vector2( 1.0533, 1.175 )
+texture = ExtResource( 7 )
 
 [node name="StaticBody2D 2" type="StaticBody2D" parent="WorldBorder"]
 
@@ -207,16 +218,22 @@ _update_shape_index = 0
 
 [node name="Layers" type="Node2D" parent="."]
 
-script/script = ExtResource( 7 )
+transform/pos = Vector2( 74.3627, 38.993 )
+transform/scale = Vector2( 0.943181, 0.943181 )
+script/script = ExtResource( 8 )
 
 [node name="Standart" type="Node2D" parent="Layers"]
 
 transform/pos = Vector2( 2.7207, -2.72076 )
 
-[node name="Platform_1" type="StaticBody2D" parent="Layers/Standart"]
+[node name="Platforms" type="Node2D" parent="Layers/Standart"]
 
 editor/display_folded = true
-transform/pos = Vector2( 911.858, 504.557 )
+
+[node name="Platform_1" type="StaticBody2D" parent="Layers/Standart/Platforms"]
+
+editor/display_folded = true
+transform/pos = Vector2( 952.586, 504.557 )
 input/pickable = false
 shapes/0/shape = SubResource( 4 )
 shapes/0/transform = Matrix32( 1.40184, 0, 0, 1, 41.3945, 0 )
@@ -228,7 +245,7 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Layers/Standart/Platform_1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Layers/Standart/Platforms/Platform_1"]
 
 transform/pos = Vector2( 41.3945, 0 )
 transform/scale = Vector2( 1.40184, 1 )
@@ -239,16 +256,16 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Sprite" type="Sprite" parent="Layers/Standart/Platform_1"]
+[node name="Sprite" type="Sprite" parent="Layers/Standart/Platforms/Platform_1"]
 
 transform/pos = Vector2( 38.0213, 0 )
 transform/scale = Vector2( 1.43633, 1 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Platform_2" type="StaticBody2D" parent="Layers/Standart"]
+[node name="Platform_2" type="StaticBody2D" parent="Layers/Standart/Platforms"]
 
 editor/display_folded = true
 transform/pos = Vector2( 271.475, 412.051 )
@@ -264,7 +281,7 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Layers/Standart/Platform_2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Layers/Standart/Platforms/Platform_2"]
 
 transform/pos = Vector2( 41.3945, 0 )
 transform/scale = Vector2( 1.40184, 1 )
@@ -275,19 +292,19 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Sprite" type="Sprite" parent="Layers/Standart/Platform_2"]
+[node name="Sprite" type="Sprite" parent="Layers/Standart/Platforms/Platform_2"]
 
 transform/pos = Vector2( 38.0213, 0 )
 transform/scale = Vector2( 1.43633, 1 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Platform_3" type="StaticBody2D" parent="Layers/Standart"]
+[node name="Platform_3" type="StaticBody2D" parent="Layers/Standart/Platforms"]
 
 editor/display_folded = true
-transform/pos = Vector2( 662.918, 218.684 )
+transform/pos = Vector2( 668.23, 215.142 )
 transform/scale = Vector2( 0.645263, 0.999316 )
 input/pickable = false
 shapes/0/shape = SubResource( 4 )
@@ -300,7 +317,7 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Layers/Standart/Platform_3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Layers/Standart/Platforms/Platform_3"]
 
 transform/pos = Vector2( 41.3945, 0 )
 transform/scale = Vector2( 1.40184, 1 )
@@ -311,19 +328,19 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Sprite" type="Sprite" parent="Layers/Standart/Platform_3"]
+[node name="Sprite" type="Sprite" parent="Layers/Standart/Platforms/Platform_3"]
 
 transform/pos = Vector2( 38.0213, 0 )
 transform/scale = Vector2( 1.43633, 1 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Platform_4" type="StaticBody2D" parent="Layers/Standart"]
+[node name="Platform_4" type="StaticBody2D" parent="Layers/Standart/Platforms"]
 
 editor/display_folded = true
-transform/pos = Vector2( 865.781, 219.886 )
+transform/pos = Vector2( 871.093, 216.344 )
 transform/scale = Vector2( 0.663182, 1.07633 )
 input/pickable = false
 shapes/0/shape = SubResource( 4 )
@@ -336,7 +353,7 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Layers/Standart/Platform_4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Layers/Standart/Platforms/Platform_4"]
 
 transform/pos = Vector2( 39.7889, 0 )
 transform/scale = Vector2( 0.847526, 1 )
@@ -347,19 +364,19 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Sprite" type="Sprite" parent="Layers/Standart/Platform_4"]
+[node name="Sprite" type="Sprite" parent="Layers/Standart/Platforms/Platform_4"]
 
 transform/pos = Vector2( 39.9965, 1.54549 )
 transform/scale = Vector2( 1.36151, 1.03632 )
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Platform_5" type="StaticBody2D" parent="Layers/Standart"]
+[node name="Platform_5" type="StaticBody2D" parent="Layers/Standart/Platforms"]
 
 editor/display_folded = true
-transform/pos = Vector2( 1009.52, 220.793 )
+transform/pos = Vector2( 1014.83, 217.251 )
 transform/scale = Vector2( 0.674467, 1.07633 )
 input/pickable = false
 shapes/0/shape = SubResource( 4 )
@@ -372,7 +389,7 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Layers/Standart/Platform_5"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Layers/Standart/Platforms/Platform_5"]
 
 transform/pos = Vector2( 41.3395, 0 )
 transform/scale = Vector2( 0.744793, 1 )
@@ -380,16 +397,16 @@ shape = SubResource( 4 )
 trigger = false
 _update_shape_index = 0
 
-[node name="Sprite" type="Sprite" parent="Layers/Standart/Platform_5"]
+[node name="Sprite" type="Sprite" parent="Layers/Standart/Platforms/Platform_5"]
 
 transform/pos = Vector2( 40.8806, 1.06133 )
 transform/scale = Vector2( 1.90167, 1.00404 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 
-[node name="Platform_6" type="StaticBody2D" parent="Layers/Standart"]
+[node name="Platform_6" type="StaticBody2D" parent="Layers/Standart/Platforms"]
 
 editor/display_folded = true
-transform/pos = Vector2( 1184.72, 221.818 )
+transform/pos = Vector2( 1190.03, 218.276 )
 transform/scale = Vector2( 0.699386, 1.08314 )
 input/pickable = false
 shapes/0/shape = SubResource( 4 )
@@ -402,7 +419,7 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Layers/Standart/Platform_6"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Layers/Standart/Platforms/Platform_6"]
 
 transform/pos = Vector2( 41.3945, 0 )
 transform/scale = Vector2( 1.40184, 1 )
@@ -413,16 +430,16 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Sprite" type="Sprite" parent="Layers/Standart/Platform_6"]
+[node name="Sprite" type="Sprite" parent="Layers/Standart/Platforms/Platform_6"]
 
 transform/pos = Vector2( 38.0213, 0 )
 transform/scale = Vector2( 1.43633, 1 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Platform_7" type="StaticBody2D" parent="Layers/Standart"]
+[node name="Platform_7" type="StaticBody2D" parent="Layers/Standart/Platforms"]
 
 editor/display_folded = true
 transform/pos = Vector2( 66.397, 157.387 )
@@ -438,7 +455,7 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Layers/Standart/Platform_7"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Layers/Standart/Platforms/Platform_7"]
 
 transform/pos = Vector2( 41.3945, 0 )
 transform/scale = Vector2( 1.40184, 1 )
@@ -449,11 +466,48 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Sprite" type="Sprite" parent="Layers/Standart/Platform_7"]
+[node name="Sprite" type="Sprite" parent="Layers/Standart/Platforms/Platform_7"]
 
 transform/pos = Vector2( 38.0213, 0 )
 transform/scale = Vector2( 1.43633, 1 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Walls" type="Node2D" parent="Layers/Standart"]
+
+editor/display_folded = true
+
+[node name="Wall_1" type="StaticBody2D" parent="Layers/Standart/Walls"]
+
+editor/display_folded = true
+transform/pos = Vector2( 546.573, 546.102 )
+input/pickable = false
+shapes/0/shape = SubResource( 5 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 29.1906, 29.854 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="Sprite" type="Sprite" parent="Layers/Standart/Walls/Wall_1"]
+
+transform/pos = Vector2( 28.3451, 31.0975 )
+texture = ExtResource( 12 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Layers/Standart/Walls/Wall_1"]
+
+transform/pos = Vector2( 29.1906, 29.854 )
+shape = SubResource( 5 )
+trigger = false
+_update_shape_index = 0
 __meta__ = {
 "_edit_lock_": true
 }
@@ -461,7 +515,8 @@ __meta__ = {
 [node name="Morse" type="Node2D" parent="Layers"]
 
 editor/display_folded = true
-script/script = ExtResource( 11 )
+visibility/visible = false
+script/script = ExtResource( 13 )
 
 [node name="morseSprites" type="Node2D" parent="Layers/Morse"]
 
@@ -499,7 +554,7 @@ __meta__ = {
 
 transform/pos = Vector2( 38.0213, 0 )
 transform/scale = Vector2( 1.43633, 1 )
-texture = ExtResource( 12 )
+texture = ExtResource( 14 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -535,7 +590,7 @@ __meta__ = {
 
 transform/pos = Vector2( 38.0213, 0 )
 transform/scale = Vector2( 1.43633, 1 )
-texture = ExtResource( 12 )
+texture = ExtResource( 14 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -568,7 +623,7 @@ __meta__ = {
 
 transform/pos = Vector2( 38.0213, 0 )
 transform/scale = Vector2( 1.43633, 1 )
-texture = ExtResource( 12 )
+texture = ExtResource( 14 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -580,7 +635,7 @@ __meta__ = {
 [node name="Platform_1" type="StaticBody2D" parent="Layers/Light/Platforms"]
 
 editor/display_folded = true
-transform/pos = Vector2( 604.535, 627.505 )
+transform/pos = Vector2( 668.284, 625.734 )
 transform/scale = Vector2( 0.493126, 1 )
 input/pickable = false
 shapes/0/shape = SubResource( 4 )
@@ -608,7 +663,7 @@ __meta__ = {
 
 transform/pos = Vector2( 38.0213, 0 )
 transform/scale = Vector2( 1.43633, 1 )
-texture = ExtResource( 13 )
+texture = ExtResource( 15 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -644,12 +699,23 @@ __meta__ = {
 
 transform/pos = Vector2( 38.0213, 0 )
 transform/scale = Vector2( 1.43633, 1 )
-texture = ExtResource( 13 )
+texture = ExtResource( 15 )
 __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Transmitters" type="Node2D" parent="Layers/Light"]
+
+[node name="Transmitter_1" type="Sprite" parent="Layers/Light/Transmitters"]
+
+transform/pos = Vector2( 1264.62, 507.969 )
+transform/rot = 43.001
+transform/scale = Vector2( 0.511153, 0.255547 )
+texture = ExtResource( 16 )
+
 [node name="Mechanical" type="Node2D" parent="Layers"]
+
+editor/display_folded = true
 
 [node name="Platforms" type="Node2D" parent="Layers/Mechanical"]
 
@@ -658,7 +724,7 @@ editor/display_folded = true
 [node name="Platform_1" type="StaticBody2D" parent="Layers/Mechanical/Platforms"]
 
 editor/display_folded = true
-transform/pos = Vector2( 742.243, 569.888 )
+transform/pos = Vector2( 805.992, 569.888 )
 transform/scale = Vector2( 0.493126, 1 )
 input/pickable = false
 shapes/0/shape = SubResource( 4 )
@@ -686,7 +752,7 @@ __meta__ = {
 
 transform/pos = Vector2( 38.0213, 0 )
 transform/scale = Vector2( 1.43633, 1 )
-texture = ExtResource( 14 )
+texture = ExtResource( 17 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -722,7 +788,7 @@ __meta__ = {
 
 transform/pos = Vector2( 38.0213, 0 )
 transform/scale = Vector2( 1.43633, 1 )
-texture = ExtResource( 14 )
+texture = ExtResource( 17 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -758,7 +824,7 @@ __meta__ = {
 
 transform/pos = Vector2( 38.0213, 0 )
 transform/scale = Vector2( 1.43633, 1 )
-texture = ExtResource( 14 )
+texture = ExtResource( 17 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -791,7 +857,7 @@ __meta__ = {
 
 transform/pos = Vector2( 38.0213, 0 )
 transform/scale = Vector2( 1.43633, 1 )
-texture = ExtResource( 14 )
+texture = ExtResource( 17 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -816,7 +882,7 @@ bounce = 0.0
 transform/pos = Vector2( 51.7485, 6.17444 )
 transform/rot = -30.0373
 transform/scale = Vector2( 0.334957, 0.334957 )
-texture = ExtResource( 15 )
+texture = ExtResource( 18 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -825,7 +891,7 @@ __meta__ = {
 
 transform/pos = Vector2( 55.3891, 57.2541 )
 transform/scale = Vector2( 0.247113, 0.247113 )
-texture = ExtResource( 16 )
+texture = ExtResource( 19 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -847,7 +913,7 @@ bounce = 0.0
 transform/pos = Vector2( 54.5027, 3.42035 )
 transform/rot = 37.2341
 transform/scale = Vector2( 0.334957, 0.334957 )
-texture = ExtResource( 15 )
+texture = ExtResource( 18 )
 flip_h = true
 __meta__ = {
 "_edit_lock_": true
@@ -857,7 +923,7 @@ __meta__ = {
 
 transform/pos = Vector2( 55.3891, 57.2541 )
 transform/scale = Vector2( 0.247113, 0.247113 )
-texture = ExtResource( 16 )
+texture = ExtResource( 19 )
 __meta__ = {
 "_edit_lock_": true
 }
