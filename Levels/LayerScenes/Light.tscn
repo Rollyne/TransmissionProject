@@ -13,8 +13,6 @@ extents = Vector2( 100.012, 14.3225 )
 
 [node name="Platforms" type="Node2D" parent="."]
 
-editor/display_folded = true
-
 [node name="Platform_1" type="StaticBody2D" parent="Platforms"]
 
 editor/display_folded = true
@@ -54,7 +52,7 @@ __meta__ = {
 [node name="Platform_2" type="StaticBody2D" parent="Platforms"]
 
 editor/display_folded = true
-transform/pos = Vector2( 460.438, 353.304 )
+transform/pos = Vector2( 443.782, 270.026 )
 transform/scale = Vector2( 0.385874, 0.789687 )
 input/pickable = false
 shapes/0/shape = SubResource( 1 )

@@ -11,13 +11,9 @@ extents = Vector2( 100.012, 14.3225 )
 
 [node name="Mechanical" type="Node2D"]
 
-editor/display_folded = true
 transform/pos = Vector2( 5.49402, 1.7708 )
-transform/scale = Vector2( 1, 1 )
 
 [node name="Platforms" type="Node2D" parent="."]
-
-editor/display_folded = true
 
 [node name="Platform_1" type="StaticBody2D" parent="Platforms"]
 
@@ -83,75 +79,6 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="Platforms/Platform_2"]
-
-transform/pos = Vector2( 38.0213, 0 )
-transform/scale = Vector2( 1.43633, 1 )
-texture = ExtResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Platform_3" type="StaticBody2D" parent="Platforms"]
-
-editor/display_folded = true
-transform/pos = Vector2( 511.468, 264.651 )
-transform/scale = Vector2( 0.389518, 0.727134 )
-input/pickable = false
-shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1.40184, 0, 0, 1, 41.3945, 0 )
-shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform_3"]
-
-transform/pos = Vector2( 41.3945, 0 )
-transform/scale = Vector2( 1.40184, 1 )
-shape = SubResource( 1 )
-trigger = false
-_update_shape_index = 0
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Platforms/Platform_3"]
-
-transform/pos = Vector2( 38.0213, 0 )
-transform/scale = Vector2( 1.43633, 1 )
-texture = ExtResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Platform_4" type="KinematicBody2D" parent="Platforms"]
-
-editor/display_folded = true
-transform/pos = Vector2( 402.258, 184.478 )
-transform/scale = Vector2( 0.31414, 0.727134 )
-input/pickable = false
-shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1.40184, 0, 0, 1, 41.3945, 0 )
-shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
-collision/margin = 0.08
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform_4"]
-
-transform/pos = Vector2( 41.3945, 0 )
-transform/scale = Vector2( 1.40184, 1 )
-shape = SubResource( 1 )
-trigger = false
-_update_shape_index = 0
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Platforms/Platform_4"]
 
 transform/pos = Vector2( 38.0213, 0 )
 transform/scale = Vector2( 1.43633, 1 )

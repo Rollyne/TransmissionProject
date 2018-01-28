@@ -4,6 +4,8 @@ onready var globals = get_node("/root/globals");
 var sceneMechanical = load("res://Levels/LayerScenes/Mechanical.tscn")	
 var sceneLight = load("res://Levels/LayerScenes/Light.tscn")
 var sceneMorse = load("res://Levels/LayerScenes/Morse.tscn")
+var scenePlatformMove = load("res://Levels/LayerScenes/Standart_platform_move.tscn")
+var sceneLongWall = load("res://Levels/LayerScenes/Standart_platform_longwall.tscn")
 
 # class member variables go here, for example:
 # var a = 2
@@ -61,5 +63,15 @@ func _input(event):
 		globals.setLayerMorseActive(true);
 		
 	if globals.morseCheck():
-		if globals.getCurrCo 
-	
+		if globals.getCurrCode() == "--.-":
+			pass
+		elif globals.getCurrCode() == ".-.-":
+			var node = scenePlatformMove.instance();
+			get_tree().get_root().get_node("World").get_node("Layers").get_node("Standart").add_child(node);
+		elif globals.getCurrCde() == "-...":
+			pass
+		elif globals.getCurrCode() == ".-..":
+			var node = sceneLongWall.instance();
+			get_tree().get_root().get_node("World").get_node("Layers").get_node("Standart").add_child(node);
+		elif globals.getCurrCode() == "-...":
+			pass

@@ -1,0 +1,327 @@
+[gd_scene load_steps=10 format=1]
+
+[ext_resource path="res://Assets/background.png" type="Texture" id=1]
+[ext_resource path="res://menu/main_menu.gd" type="Script" id=2]
+[ext_resource path="res://Assets/logo.png" type="Texture" id=3]
+[ext_resource path="res://Assets/button.png" type="Texture" id=4]
+[ext_resource path="res://menu/OpenSans-ExtraBold.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Assets/Options.png" type="Texture" id=6]
+[ext_resource path="res://menu/option_menu.gd" type="Script" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+
+font/size = 50
+font/use_mipmaps = false
+font/use_filter = false
+font/font = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=2]
+
+font/size = 24
+font/use_mipmaps = true
+font/use_filter = false
+font/font = ExtResource( 5 )
+
+[node name="menu" type="Control"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 1280.0
+margin/bottom = 720.0
+
+[node name="Background" type="TextureFrame" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 1280.0
+margin/bottom = 720.0
+texture = ExtResource( 1 )
+stretch_mode = 0
+
+[node name="main" type="CenterContainer" parent="."]
+
+anchor/right = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 720.0
+use_top_left = false
+script/script = ExtResource( 2 )
+
+[node name="buttons" type="VBoxContainer" parent="main"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 2
+margin/left = 395.0
+margin/top = 150.0
+margin/right = 885.0
+margin/bottom = 570.0
+custom_constants/separation = 20
+alignment = 1
+
+[node name="lblTitle" type="TextureFrame" parent="main/buttons"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 490.0
+margin/bottom = 90.0
+texture = ExtResource( 3 )
+stretch_mode = 0
+
+[node name="btnStart" type="TextureButton" parent="main/buttons"]
+
+rect/min_size = Vector2( 0, 90 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 110.0
+margin/right = 490.0
+margin/bottom = 200.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 4 )
+params/resize_mode = 1
+params/stretch_mode = 0
+
+[node name="Start" type="Label" parent="main/buttons/btnStart"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 10.0
+margin/top = 10.0
+margin/right = 10.0
+margin/bottom = 10.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Start"
+align = 1
+valign = 1
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="btnOption" type="TextureButton" parent="main/buttons"]
+
+rect/min_size = Vector2( 0, 90 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 220.0
+margin/right = 490.0
+margin/bottom = 310.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 4 )
+params/resize_mode = 1
+params/stretch_mode = 0
+
+[node name="Option" type="Label" parent="main/buttons/btnOption"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 10.0
+margin/top = 10.0
+margin/right = 10.0
+margin/bottom = 10.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Option"
+align = 1
+valign = 1
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="btnQuit" type="TextureButton" parent="main/buttons"]
+
+rect/min_size = Vector2( 0, 90 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 330.0
+margin/right = 490.0
+margin/bottom = 420.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 4 )
+params/resize_mode = 1
+params/stretch_mode = 0
+
+[node name="Quit" type="Label" parent="main/buttons/btnQuit"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 10.0
+margin/top = 10.0
+margin/right = 10.0
+margin/bottom = 10.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Quit"
+align = 1
+valign = 1
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="option" type="TextureFrame" parent="main"]
+
+visibility/visible = false
+rect/min_size = Vector2( 640, 360 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 320.0
+margin/top = 180.0
+margin/right = 960.0
+margin/bottom = 540.0
+texture = ExtResource( 6 )
+stretch_mode = 0
+script/script = ExtResource( 7 )
+
+[node name="CenterContainer" type="CenterContainer" parent="main/option"]
+
+anchor/right = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 360.0
+use_top_left = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="main/option/CenterContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 191.0
+margin/top = 139.0
+margin/right = 448.0
+margin/bottom = 221.0
+alignment = 1
+
+[node name="VolContainer" type="HBoxContainer" parent="main/option/CenterContainer/VBoxContainer"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 257.0
+margin/bottom = 14.0
+alignment = 0
+
+[node name="Volume" type="Label" parent="main/option/CenterContainer/VBoxContainer/VolContainer"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 53.0
+margin/bottom = 14.0
+text = "Volume:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="scrVolume" type="HScrollBar" parent="main/option/CenterContainer/VBoxContainer/VolContainer"]
+
+rect/min_size = Vector2( 200, 0 )
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 3
+size_flags/vertical = 2
+margin/left = 57.0
+margin/top = 0.0
+margin/right = 257.0
+margin/bottom = 14.0
+range/min = 0.0
+range/max = 100.0
+range/step = 1.0
+range/page = 4.0
+range/value = 96.0
+range/exp_edit = false
+range/rounded = false
+custom_step = -1.0
+
+[node name="spacer" type="Control" parent="main/option/CenterContainer/VBoxContainer"]
+
+rect/min_size = Vector2( 0, 20 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 18.0
+margin/right = 257.0
+margin/bottom = 38.0
+
+[node name="btnBack" type="Button" parent="main/option/CenterContainer/VBoxContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 0
+size_flags/vertical = 0
+margin/left = 92.0
+margin/top = 42.0
+margin/right = 164.0
+margin/bottom = 82.0
+custom_fonts/font = SubResource( 2 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Back"
+flat = false
+
+
