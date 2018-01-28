@@ -60,7 +60,6 @@ func _input(event):
 	else:
 		globals.setLayerMorseActive(true);
 		
-	globals.morseCheck():
-morseCheck()
-		i
+	if globals.morseCheck():
+		if globals.getCurrCo 
 	
